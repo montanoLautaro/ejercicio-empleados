@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<title>REGISTRO</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body>
+<div >
+	<nav class="navbar bg-body-tertiary">
+		<form class="container-fluid justify-content-center">
+			<a class="btn btn-sm btn-outline-secondary" href="http://localhost:8080/login" >Login</a>
+			<a class="btn btn-outline-success me-2" href="http://localhost:8080/registro" >Registro</a>
+		</form>
+	</nav>
+</div>
+<br>
+
+	<h1 class="text-center">Regístrate</h1>
+<br>
+<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<div th:if=${param.exito}>
+					<div class="alert alert-info">Se ha registrado exitosamente a
+						la aplicación</div>
+				</div>
+				<form th:action="@{/registro}" method="post" th:object="${usuario}">
+					<div class="form-group">
+						<label class="control-label" for="nombre">Nombre : </label> <input
+							id="nombre" type="text" class="form-control" th:field="*{nombre}"
+							required autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="apellido">Apellido : </label> <input
+							id="apellido" class="form-control" th:field="*{apellido}"
+							required autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="email">Username : </label> <input
+							id="email" type="text" class="form-control" th:field="*{username}"
+							required autofocus="autofocus">
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="password">Password : </label> <input
+							type="password" id="password" class="form-control" th:field="*{password}"
+							required autofocus="autofocus">
+					</div>
+
+					<br>
+					<br>
+					<div class="form-group">
+						<button type="submit" class="btn btn-outline-success">Registrar</button>
+						<span>Si estas registrado <a th:href="@{/login}">inicia sesión aqui</a></span>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+	<footer class="page-footer font-small blue">
+		<div class="footer-copyright text-center py-3">
+			<p>Ejercicio curso de aceleración G&L</p>
+		</div>
+	</footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
